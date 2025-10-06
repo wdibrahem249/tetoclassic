@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>teto classic</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <!-- اللوقو (يربط للرئيسية) -->
+      <a class="brand-logo" href="index.html" aria-label="teto classic">
+        <img src="images/logo.jpg" alt="teto classic logo">
+      </a>
+
+      <div class="socials">
+        <a href="https://www.instagram.com/teto_classic_egy" aria-label="Instagram" class="social">instagram</a>
+        <a href="https://www.tiktok.com/@teto_classic" aria-label="TikTok" class="social">tiktok</a>
+      </div>
+
+      <nav class="topnav" aria-label="التنقل الرئيسي">
+        <a class="nav-link" href="index.html">الرئيسية</a>
+        <a class="nav-link" href="section.html?section=shirts">قمصان</a>
+        <a class="nav-link" href="section.html?section=pants">بناطيل</a>
+        <a class="nav-link" href="section.html?section=shoes">أحذية</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="wrap">
+    <!-- About -->
+    <section class="about panel">
+      <h2>عن المتجر</h2>
+      <p>✨Teto Classic | حرفة سودانية بفخامة عالمية✨</p>
+      <p>توصيل مجاني 🚚 • معاينة قبل الاستلام 📦 • ضمان حصري 🛡️</p>
+      <p>🥇 التميز ليس للجميع، بل لأولئك الذين يفعلون كل ما يلزم 🥇</p>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews panel">
+      <h2>آراء العملاء</h2>
+      <div class="reviews-grid" id="reviews">
+        <!-- تأكد من أن ملفات الصور موجودة بالمسميات التالية داخل مجلد images/ -->
+        <div class="rev-img"><img src="images/revew 1.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 2.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 3.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 4.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 5.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 6.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 7.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 8.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 9.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 10.jpg" alt="" class="rev-thumb"></div>
+        <div class="rev-img"><img src="images/revew 11.jpg" alt="" class="rev-thumb"></div>
+      </div>
+    </section>
+
+    <!-- Sections -->
+
+    <section class="sections panel">
+      <h2>الأقسام</h2>
+      <div class="sections-row">
+        <a class="section-card" href="section.html?section=shirts">قمصان</a>
+        <a class="section-card" href="section.html?section=pants">بناطيل</a>
+        <a class="section-card" href="section.html?section=shoes">أحذية</a>
+      </div>
+    </section>
+
+    <footer class="panel small">الصفحة تعمل بالكامل على المتصفح — لا تجمع بيانات حساسة هنا.</footer>
+  </main>
+
+  <!-- CART TOGGLE -->
+  <button id="cartToggle" class="cart-btn" aria-label="عربة الشراء">🛒</button>
+
+  <!-- CART DRAWER -->
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>العربة</h3>
+      <button id="closeCart" class="close-x" aria-label="إغلاق">✕</button>
+    </div>
+    <div id="cartItems" class="drawer-body">العربة فارغة</div>
+    <div class="drawer-foot">
+      <div id="cartTotal" class="total">الإجمالي: 0 ج.م</div>
+      <div class="drawer-actions">
+        <button id="clearCart" class="btn">تفريغ العربة</button>
+        <button id="sendCart" class="btn send">أرسل عبر واتساب</button>
+      </div>
+    </div>
+  </aside>
+
+  
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div>© حقوق الملكية محفوظة لـ <span id="year"></span> teto classic</div>
+    <p>created by <a href="https://www.instagram.com/wd_ibrahim992">MOHAMMED IBRAHIM</a></p>
+  </footer>
+
+  <!-- سكربتات صغيرة: تعبئة السنة وفتح مودال الصورة -->
+  <script>
+    // املأ سنة الفوتر تلقائياً
+    (function(){ try{ document.getElementById('year').innerText = new Date().getFullYear(); }catch(e){} })();
+
+    // فتح مودال تكبير الصورة عند الضغط على صورة مراجعة
+    (function(){
+      const imgModal = document.getElementById('imgModal');
+      const imgModalImg = document.getElementById('imgModalImg');
+      const closeImgModal = document.getElementById('closeImgModal');
+
+      document.getElementById('reviews')?.addEventListener('click', function(e){
+        const target = e.target.closest('.rev-thumb');
+        if(!target) return;
+        imgModalImg.src = target.src || '';
+        imgModal.classList.add('open');
+        imgModal.setAttribute('aria-hidden','false');
+      });
+
+      // إغلاق المودال
+      closeImgModal && closeImgModal.addEventListener('click', function(){
+        imgModal && imgModal.classList.remove('open');
+        imgModal && imgModal.setAttribute('aria-hidden','true');
+        imgModalImg && (imgModalImg.src = '');
+      });
+      imgModal && imgModal.addEventListener('click', function(e){ if(e.target === imgModal){ imgModal.classList.remove('open'); imgModal.setAttribute('aria-hidden','true'); imgModalImg.src = ''; }});
+    })();
+  </script>
+
+  <script src="main.js"></script>
+</body>
+</html>
