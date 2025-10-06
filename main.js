@@ -1,5 +1,5 @@
 /* ====== ضع رقمك هنا (بدون +) ====== */
-const STORE_PHONE = '20XXXXXXXXXXX';
+const STORE_PHONE = '+201150843060';
 /* ================================= */
 
 (function(){
@@ -559,3 +559,4 @@ const STORE_PHONE = '20XXXXXXXXXXX';
   })();
 
 })();
+
