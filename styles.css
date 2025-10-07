@@ -40,8 +40,8 @@ html,body{height:100%;margin:0;background:linear-gradient(180deg,#050505,#0b0b0b
 
 /* PRODUCTS */
 
-.products{display:flex;flex-wrap:wrap;justify-content:space-between;}
-.card{width:48%;margin-bottom:20px;}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;justify-items:center;}
+.card{width:90%;box-sizing:border-box;}
 
 .prod-thumb{width:100%;height:180px;overflow:hidden;border-radius:8px;background:#0b0b0b;display:grid;place-items:center;margin-bottom:10px}
 .prod-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
@@ -157,5 +157,6 @@ main.wrap{padding-bottom:calc(var(--footer-height) + 20px)}
   .img-modal{ padding:10px; background:rgba(0,0,0,0.95); }
   .img-modal .img-wrap{ max-width:98vw; max-height:86vh; }
 }
+
 
 
